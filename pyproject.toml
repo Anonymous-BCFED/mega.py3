@@ -22,7 +22,6 @@ packages = [
 python = ">=3.8,<4.0"
 requests = ">=2.27.1"
 pycryptodome = "^3.14.1"
-pathlib = "1.0.1"
 tenacity = "^8.0.1"
 
 [tool.poetry.dev-dependencies]
