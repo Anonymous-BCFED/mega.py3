@@ -33,8 +33,9 @@ First, [create an account with Mega](https://mega.nz/aff=Zo6IxNaHw14) .
 
 Run the following command, or run setup from the latest github source.
 
-```python
-pip install mega.py
+```shell
+# If Linux (most flavors require the 3 to specify Python 3)
+pip3 install -U https://github.com/Anonymous-BCFED/mega.py3.git
 ```
 
 ### Import mega.py
