@@ -1,10 +1,18 @@
 Release History
 ===============
 
+1.1.0 - In Development
+------------------
+
+- New maintainers (hi)
+- Python 3.8 support
+- Project management system changes
+- Code standards changes (because flake8 doesn't like new stuff)
+
 1.0.9 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Minor changes, project died ~2020.
 
 
 1.0.8 (2020-06-25)

@@ -1,6 +1,6 @@
 # Mega4Py
 
-(Forked from ye olde mega.py by UK Python Development Agency.)
+(Forked from ye olde [mega.py](https://github.com/odwyersoftware/mega.py) by UK Python Development Agency.)
 <!--
 [![Build
 Status](https://travis-ci.org/odwyersoftware/mega.py.png?branch=master)](https://travis-ci.org/odwyersoftware/mega.py)
