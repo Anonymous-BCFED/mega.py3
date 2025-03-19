@@ -19,7 +19,7 @@ API, currently supporting:
 * ~~renaming~~ (WIP)
 * ~~moving files~~ (WIP)
 
-I have forked this project, and am currently overhauling it so it works on Python >= 3.8.
+I have forked this project, and am currently overhauling it so it works on Python >= 3.19.
 
 For more detailed information see [API\_INFO.md]
 
@@ -34,8 +34,7 @@ First, [create an account with Mega](https://mega.nz/aff=Zo6IxNaHw14) .
 Run the following command, or run setup from the latest github source.
 
 ```shell
-# If Linux (most flavors require the 3 to specify Python 3)
-pip3 install -U https://github.com/Anonymous-BCFED/mega.py3.git
+pip install -U https://github.com/Anonymous-BCFED/mega.py3.git
 ```
 
 ### Import mega.py
