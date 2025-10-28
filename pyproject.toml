@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "mega4py"
-version = "1.10.0"
+version = "1.10.1"
 description = "Python lib for the Mega.co.nz API - Updated for Python 3."
 authors = ["O'Dwyer Software <hello@odwyer.software>"]
 maintainers = ["Anonymous-BCFED <nope@no.pe>"]
@@ -18,19 +18,19 @@ packages = [{ include = "mega", from = "src" }]
 
 [tool.poetry.dependencies]
 python = ">=3.10,<4.0"
-requests = "^2.32.3"
-pycryptodome = "^3.22.0"
-tenacity = "^9.0.0"
+requests = "^2.32.5"
+pycryptodome = "^3.23.0"
+tenacity = "^9.1.2"
 
 [tool.poetry.group.dev.dependencies]
 autopep8 = "^2.3.2"
-isort = "^6.0.1"
-pytest = "^8.3.5"
-pytest-cov = "^6.0.0"
-pytest-mock = "^3.14.0"
+isort = "^7.0.0"
+pytest = "^8.4.2"
+pytest-cov = "^7.0.0"
+pytest-mock = "^3.15.1"
 requests-mock = "^1.12.1"
-coverage = { version = "^7.7.0", extras = ["toml"] }
-mypy = "^1.15.0"
+coverage = { version = "^7.11.0", extras = ["toml"] }
+mypy = "^1.18.2"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
