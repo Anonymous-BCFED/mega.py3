@@ -1,12 +1,5 @@
 [tool.poetry]
-name = "mega4py"
 version = "1.10.1"
-description = "Python lib for the Mega.co.nz API - Updated for Python 3."
-authors = ["O'Dwyer Software <hello@odwyer.software>"]
-maintainers = ["Anonymous-BCFED <nope@no.pe>"]
-license = "Apache-2.0"
-readme = "README.md"
-homepage = "https://github.com/Anonymous-BCFED/mega.py3"
 classifiers = [
     'Intended Audience :: Developers',
     'Operating System :: OS Independent',
@@ -15,12 +8,10 @@ classifiers = [
     'Topic :: Internet :: WWW/HTTP',
 ]
 packages = [{ include = "mega", from = "src" }]
+requires-poetry = '>=2.0,<3.0'
 
 [tool.poetry.dependencies]
 python = ">=3.10,<4.0"
-requests = "^2.32.5"
-pycryptodome = "^3.23.0"
-tenacity = "^9.1.2"
 
 [tool.poetry.group.dev.dependencies]
 autopep8 = "^2.3.2"
@@ -84,3 +75,17 @@ omit = [
     "**/env.py",
     "**/urls.py",
 ]
+
+[project]
+name = "mega4py"
+description = "Python lib for the Mega.co.nz API - Updated for Python 3."
+license = "Apache-2.0"
+dynamic = ["version", "classifiers"]
+readme = "README.md"
+authors = [{name = "O'Dwyer Software", email = "hello@odwyer.software"}]
+maintainers = [{name = "Anonymous-BCFED", email = "nope@no.pe"}]
+requires-python = '>=3.10,<4.0'
+dependencies = ['requests (>=2.32.5,<3.0.0)', 'pycryptodome (>=3.23.0,<4.0.0)', 'tenacity (>=9.1.2,<10.0.0)']
+
+[project.urls]
+homepage = "https://github.com/Anonymous-BCFED/mega.py3"
