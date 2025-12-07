@@ -1,14 +1,51 @@
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[project]
+name = "mega4py"
+description = "Python lib for the Mega.co.nz API - Updated for Python 3."
+readme = "README.md"
+license = "Apache-2.0"
+maintainers = [
+    {name = "Anonymous-BCFED", email = "nope@no.pe"},
+]
+requires-python = ">=3.12,<4.0"
+dynamic = ["version", "classifiers"]
+dependencies = [
+    "requests<3.0.0,>=2.32.5",
+    "pycryptodome<4.0.0,>=3.23.0",
+    "tenacity<10.0.0,>=9.1.2",
+]
+
+[project.urls]
+homepage = "https://github.com/Anonymous-BCFED/mega.py3"
+
+
+[tool.autopep8]
+max_line_length = 79
+ignore = ["E501", "W6"]
+
+[tool.coverage.run]
+omit = ["tests/*", "src/*", "setup.py", ".tox/*", "dist/*", "**/celeryconfig.py", "**/constants.py", "**/migrations/*", "**/__init__.py", "app.py", "**/env.py", "**/urls.py"]
+
+[tool.isort]
+line_length = 79
+
+[tool.mypy]
+exclude = [".venv", ".git"]
+python_version = "3.12"
+warn_return_any = true
+warn_unused_configs = true
+
 [tool.poetry]
 version = "1.10.1"
-classifiers = [
-    'Intended Audience :: Developers',
-    'Operating System :: OS Independent',
-    'Programming Language :: Python',
-    'Programming Language :: Python :: 3',
-    'Topic :: Internet :: WWW/HTTP',
-]
-packages = [{ include = "mega", from = "src" }]
-requires-poetry = '>=2.0,<3.0'
+classifiers = ["Intended Audience :: Developers", "Operating System :: OS Independent", "Programming Language :: Python", "Programming Language :: Python :: 3", "Topic :: Internet :: WWW/HTTP"]
+requires-poetry = ">=2.0,<3.0"
+
+[[tool.poetry.packages]]
+include = "mega"
+from = "src"
 
 [tool.poetry.dependencies]
 python = ">=3.12,<4.0"
@@ -20,73 +57,13 @@ pytest = "^9.0.2"
 pytest-cov = "^7.0.0"
 pytest-mock = "^3.15.1"
 requests-mock = "^1.12.1"
-coverage = { version = "^7.12.0", extras = ["toml"] }
 mypy = "^1.19.0"
 types-requests = "^2.32.4.20250913"
 
-[build-system]
-requires = ["poetry-core>=1.0.0"]
-build-backend = "poetry.core.masonry.api"
+[tool.poetry.group.dev.dependencies.coverage]
+version = "^7.12.0"
+extras = ["toml"]
 
-# https://docs.pytest.org/en/6.2.x/customize.html
 [tool.pytest.ini_options]
 addopts = "-x -s -v"
 norecursedirs = [".git"]
-
-# zest.releaser died and doesn't support pyproject. RIP.
-# [zest.releaser]
-# create-wheel = yes
-
-# I don't like Flake8 and it doesn't support pyproject.
-# [tool.flake8]
-# exclude = [".git", "__pycache__", "legacy", "build", "dist", ".tox"]
-# max-complexity = 15
-# ignore = ["E741", "W504", "W503"]
-
-[tool.mypy]
-exclude = [".venv", ".git"]
-python_version = "3.12"
-warn_return_any = true
-warn_unused_configs = true
-
-# I prefer autopep8
-# [tool:brunette]
-# line-length = 79
-# verbose = true
-# single-quotes = true
-
-[tool.autopep8]
-max_line_length = 79    #200 :(
-ignore = ["E501", "W6"]
-[tool.isort]
-line_length = 79 # 200 :(
-
-[tool.coverage.run]
-omit = [
-    "tests/*",
-    "src/*",
-    "setup.py",
-    ".tox/*",
-    "dist/*",
-    "**/celeryconfig.py",
-    "**/constants.py",
-    "**/migrations/*",
-    "**/__init__.py",
-    "app.py",
-    "**/env.py",
-    "**/urls.py",
-]
-
-[project]
-name = "mega4py"
-description = "Python lib for the Mega.co.nz API - Updated for Python 3."
-license = "Apache-2.0"
-dynamic = ["version", "classifiers"]
-readme = "README.md"
-authors = [{name = "O'Dwyer Software", email = "hello@odwyer.software"}]
-maintainers = [{name = "Anonymous-BCFED", email = "nope@no.pe"}]
-requires-python = '>=3.12,<4.0'
-dependencies = ['requests (>=2.32.5,<3.0.0)', 'pycryptodome (>=3.23.0,<4.0.0)', 'tenacity (>=9.1.2,<10.0.0)']
-
-[project.urls]
-homepage = "https://github.com/Anonymous-BCFED/mega.py3"
