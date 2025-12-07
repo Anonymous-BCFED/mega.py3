@@ -5,6 +5,8 @@ import logging
 import secrets
 from pathlib import Path
 import hashlib
+from typing import Any, Optional
+from typing_extensions import Self
 from Crypto.Cipher import AES
 from Crypto.PublicKey import RSA
 from Crypto.Util import Counter
@@ -28,20 +30,20 @@ logger = logging.getLogger(__name__)
 
 
 class Mega:
-    def __init__(self, options=None):
-        self.schema = 'https'
-        self.domain = 'mega.co.nz'
-        self.timeout = 160  # max secs to wait for resp from api requests
-        self.sid = None
-        self.sequence_num = random.randint(0, 0xFFFFFFFF)
-        self.request_id = make_id(10)
+    def __init__(self, options:Optional[dict]=None)->None:
+        self.schema: str = 'https'
+        self.domain: str = 'mega.co.nz'
+        self.timeout: int = 160  # max secs to wait for resp from api requests
+        self.sid:Any = None
+        self.sequence_num:int = random.randint(0, 0xFFFFFFFF)
+        self.request_id:int = make_id(10)
         self._trash_folder_node_id = None
 
         if options is None:
             options = {}
-        self.options = options
+        self.options:dict = options
 
-    def login(self, email=None, password=None):
+    def login(self, email:Optional[str]=None, password:Optional[str]=None)->Self:
         if email:
             self._login_user(email, password)
         else:
@@ -50,7 +52,7 @@ class Mega:
         logger.info('Login complete')
         return self
 
-    def _login_user(self, email, password):
+    def _login_user(self, email:str, password:Optional[str])->None:
         logger.info('Logging in user...')
         email = email.lower()
         get_user_salt_resp = self._api_request({'a': 'us0', 'user': email})
