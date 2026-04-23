@@ -13,14 +13,11 @@ maintainers = [
 requires-python = ">=3.12,<4.0"
 dynamic = ["version", "classifiers"]
 dependencies = [
-    "requests<3.0.0,>=2.32.5",
-    "pycryptodome<4.0.0,>=3.23.0",
-    "tenacity<10.0.0,>=9.1.2",
+    "pycryptodome<4,>=3.23",
+    "requests<3,>=2.33.1",
+    "tenacity<10,>=9.1.4",
 ]
-
-[project.urls]
-homepage = "https://github.com/Anonymous-BCFED/mega.py3"
-
+urls.homepage = "https://github.com/Anonymous-BCFED/mega.py3"
 
 [tool.autopep8]
 max_line_length = 79
@@ -40,29 +37,31 @@ warn_unused_configs = true
 
 [tool.poetry]
 version = "1.10.1"
-classifiers = ["Intended Audience :: Developers", "Operating System :: OS Independent", "Programming Language :: Python", "Programming Language :: Python :: 3", "Topic :: Internet :: WWW/HTTP"]
+classifiers = [
+    "Intended Audience :: Developers",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Topic :: Internet :: WWW/HTTP",
+]
+packages = [
+    {include = "mega", from = "src"},
+]
 requires-poetry = ">=2.0,<3.0"
-
-[[tool.poetry.packages]]
-include = "mega"
-from = "src"
 
 [tool.poetry.dependencies]
 python = ">=3.12,<4.0"
 
 [tool.poetry.group.dev.dependencies]
 autopep8 = "^2.3.2"
-isort = "^7.0.0"
-pytest = "^9.0.2"
-pytest-cov = "^7.0.0"
+coverage = {version = "^7.13.5", extras = ["toml"]}
+isort = "^8.0.1"
+mypy = "^1.20.2"
+pytest = "^9.0.3"
+pytest-cov = "^7.1.0"
 pytest-mock = "^3.15.1"
 requests-mock = "^1.12.1"
-mypy = "^1.19.0"
-types-requests = "^2.32.4.20250913"
-
-[tool.poetry.group.dev.dependencies.coverage]
-version = "^7.12.0"
-extras = ["toml"]
+types-requests = "^2.33.0.20260408"
 
 [tool.pytest.ini_options]
 addopts = "-x -s -v"
